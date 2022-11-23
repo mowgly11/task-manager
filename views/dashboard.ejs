@@ -6,6 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard</title>
+  <script src="./script.js" defer></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -13,6 +15,20 @@
   <form action="/logout?_method=DELETE" method="POST">
     <button type="submit">Logout</button>
   </form>
+  <p id="message"></p>
+  <form id="addTaskForm" action="/dashboard" method="POST">
+    <a href="#addtask">+</a>
+    <div id="add-task" style="display: flex;">
+      <input type="text" name="task" id="task">
+      <button type="submit">Add</button>
+    </div>
+  </form>
 </body>
+
+<!--<script>
+  function addInput() {
+    document.getElementById("add-task").style.display = 'flex';
+  }
+</script>-->
 
 </html>

@@ -41,6 +41,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
+app.use(express.json());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(methodOverride("_method"));
@@ -60,7 +61,7 @@ files.forEach(f => {
             if (file.runPOST) app.post(file.name, file.middleware, file.runPOST);
         }
         app.get(file.name, file.runGET);
-        if (file.runPOST) app.post(file.name, file.runPOST)
+        if (file.runPOST) app.post(file.name, file.runPOST);
     }
 });
 
