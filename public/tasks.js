@@ -7,18 +7,19 @@ module.exports = {
     runGET: async (req, res) => {
         delete require.cache[require.resolve("../views/tasks.ejs")];
 
-        let args = [];
-
         User.findById(req.session.passport.user, (err, data) => {
             if (err) return res.send({ message: "error finding data" });
             if (!data) return res.send({ message: "an error just happened, Please relogin" });
 
+            let args = [];
+
             const values = Object.values(data.tasks);
+
             values.forEach(value => {
-                if(value !== '' && value !== undefined) args.push(value);
+                if (value !== '' && value !== undefined) args.push(value);
             });
 
-            res.render("tasks.ejs", args);
+            res.render("tasks.ejs", { args });
         });
     },
 

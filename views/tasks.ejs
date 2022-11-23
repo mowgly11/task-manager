@@ -13,8 +13,8 @@
 <body>
   <h1>Tasks</h1>
   <div id="tasks">
-    <% for(i = 0; i <= 30; i++) {%>
-        <%=args[i]%>
+    <% for(i = 0; i <= args.length; i++) {%>
+    <%= args[i] %>
     <% } %>
   </div>
 </body>
