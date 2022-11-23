@@ -12,16 +12,27 @@ module.exports = {
 
     runPOST: async (req, res) => {
         const task = req.body.task;
-        const user = await User.findById(req.session.passport.user);
 
-        console.log(task);
+        User.findOne({
+            _id: req.session.passport.user
+        }, async (err, data) => {
+            if (err) return res.send({ message: "error saving data" });
+            if (!data) return res.send({ message: "an error just happened, Please relogin" });
 
-        user.tasks[`task_${user.tasksCount}`] = task;
+            for (i = 0; i <= 30; i++) {
+                if (data.tasks[`task${[i]}`] == "") {
+                    data.tasks[`task${[i]}`] = task;
+                    break;
+                }
+            }
 
-        user.tasksCount += 1;
-        
-        user.save();
+            data.tasksCount += 1;
 
-        res.send({ message: "Added Successfully." });
+            await data.save();
+
+            console.log(data);
+
+            res.send({ message: "Added Successfully." });
+        });
     }
 }
