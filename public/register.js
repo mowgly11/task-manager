@@ -15,7 +15,6 @@ module.exports = {
         User.findOne({
             email: req.body.email,
         }, async (err, data) => {
-            console.log(data)
             if (err) throw new Error('Error: ' + err);
             if (data) return next("email already exists");
             try {

@@ -16,12 +16,11 @@ module.exports = {
         const user = await User.findById(req.session.passport.user);
         if (!user) return res.send({ message: "an error just happened, Please relogin" });
 
-        user.tasks.push(`task${user.tasksCount}:${task}`);
+        user.tasks.push(`${task}`);
+        user.tasksCount += 1;
 
         await user.save();
 
-        console.log(user)
-
-        res.send({ message: "Added Successfully." });
+        return res.send({ message: "Added Successfully." });
     }
 }
