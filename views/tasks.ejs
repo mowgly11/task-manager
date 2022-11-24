@@ -18,7 +18,7 @@
       <% for(i = 0; i < args.length; i++) { %>
       <div>
         <label for="checked"><%= args[i] %></label>
-        <input type="checkbox" name="checked" value="<%= args[i] %>" id="checked">
+        <input type="checkbox" name="checked" value="<%= i %>" id="checked">
       </div>
       <% } %>
       <button type="submit">Submit</button>

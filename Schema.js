@@ -4,7 +4,16 @@ const schema = new Schema({
     username: String,
     email: String,
     password: String,
-    tasks: Array,
+    tasks: [
+        {
+            task: Object,
+            date: Number,
+            status: {
+                type: Boolean,
+                default: false
+            }
+        }
+    ],
     tasksCount: Number
 });
 

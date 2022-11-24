@@ -14,7 +14,7 @@ module.exports = {
             let args = [];
 
             data.tasks.forEach(task => {
-                if (task != null) args.push(task);
+                if (task.status === false) args.push(task.task);
             });
 
             res.render("tasks.ejs", { args });
@@ -33,12 +33,10 @@ module.exports = {
 
             if (typeof value === 'object') {
                 value.forEach(val => {
-                    index = data.tasks.indexOf(val);
-                    data.tasks.splice(index, 1);
+                    data.tasks[parseInt(val)].status = true;
                 });
             } else if (typeof value === 'string') {
-                index = data.tasks.indexOf(value);
-                data.tasks.splice(index, 1);
+                data.tasks[parseInt(value)].status = true;
             }
 
             await data.save();
