@@ -19,14 +19,15 @@ module.exports = {
             if (err) return res.send({ message: "error saving data" });
             if (!data) return res.send({ message: "an error just happened, Please relogin" });
 
-            for (i = 0; i <= 30; i++) {
-                if (data.tasks[`task${[i]}`] == "") {
-                    data.tasks[`task${[i]}`] = task;
-                    break;
+            User.findOneAndUpdate({
+                _id: req.session.passport.user
+            }, {
+                tasks: {
+                    [`task${data.tasksCount}`]: task
                 }
-            }
+            });
 
-            data.tasksCount += 1;
+            data.tasksCount += 1
 
             await data.save();
 
