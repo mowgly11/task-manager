@@ -13,12 +13,10 @@ module.exports = {
 
             let args = [];
 
-            const values = Object.values(data.tasks);
-
-            values.forEach(value => {
-                if (value !== '' && value !== undefined) args.push(value);
+            data.tasks.forEach(task => {
+                if(task != null) args.push(task);
             });
-
+            
             res.render("tasks.ejs", { args });
         });
     },

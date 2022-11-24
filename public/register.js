@@ -23,7 +23,7 @@ module.exports = {
                     email: req.body.email,
                     username: req.body.username,
                     password: await bcrypt.hash(req.body.password, 10),
-                    tasks: Object,
+                    tasks: [],
                     tasksCount: 0
                 }).save();
 

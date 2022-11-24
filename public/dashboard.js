@@ -13,27 +13,15 @@ module.exports = {
     runPOST: async (req, res) => {
         const task = req.body.task;
 
-        User.findOne({
-            _id: req.session.passport.user
-        }, async (err, data) => {
-            if (err) return res.send({ message: "error saving data" });
-            if (!data) return res.send({ message: "an error just happened, Please relogin" });
+        const user = await User.findById(req.session.passport.user);
+        if (!user) return res.send({ message: "an error just happened, Please relogin" });
 
-            User.findOneAndUpdate({
-                _id: req.session.passport.user
-            }, {
-                tasks: {
-                    [`task${data.tasksCount}`]: task
-                }
-            });
+        user.tasks.push(`task${user.tasksCount}:${task}`);
 
-            data.tasksCount += 1
+        await user.save();
 
-            await data.save();
+        console.log(user)
 
-            console.log(data);
-
-            res.send({ message: "Added Successfully." });
-        });
+        res.send({ message: "Added Successfully." });
     }
 }
