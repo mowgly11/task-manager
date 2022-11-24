@@ -13,19 +13,16 @@
 <body>
   <h1>Tasks</h1>
   <div id="tasks">
-    <% if(args[0] != null) {%>
     <form action="/tasks" method="POST" id="doneTask">
       <% for(i = 0; i < args.length; i++) { %>
       <div>
         <label for="checked"><%= args[i] %></label>
-        <input type="checkbox" name="checked" value="<%= i %>" id="checked">
+        <input type="checkbox" id="checked" name="checked" value="<%= i %>" id="checked">
       </div>
       <% } %>
       <button type="submit">Submit</button>
     </form>
-    <% } else { %>
     <p>No Tasks Yet.</p>
-    <% } %>
   </div>
 </body>
 

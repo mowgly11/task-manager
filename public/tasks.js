@@ -26,17 +26,16 @@ module.exports = {
             if (err) return res.send({ message: "error finding data" });
             if (!data) return res.send({ message: "an error just happened, Please relogin" });
 
-            let index;
             let value = req.body.checked;
 
-            if (value == undefined) return res.send({ message: "Please Select A Task(s) to remove first" });
+            if (!value) return res.send({ message: "Please Select A Task(s) to remove first" });
 
             if (typeof value === 'object') {
                 value.forEach(val => {
-                    data.tasks[parseInt(val)].status = true;
+                    data.tasks.splice(parseInt(val), 1)
                 });
             } else if (typeof value === 'string') {
-                data.tasks[parseInt(value)].status = true;
+                data.tasks.splice(parseInt(value), 1)
             }
 
             await data.save();
