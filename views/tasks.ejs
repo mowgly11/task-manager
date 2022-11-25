@@ -17,7 +17,7 @@
       <% if(args[0] !== undefined) {%>
       <% for(i = 0; i < args.length; i++) { %>
       <div>
-        <label for="checked"><%= args[i] %></label>
+        <label for="checked"><%= args[i].task %> - <%= args[i].since %> </label>
         <input type="checkbox" id="checked" name="checked" value="<%= i %>" id="checked">
       </div>
       <% } %>

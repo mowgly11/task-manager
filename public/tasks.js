@@ -1,5 +1,6 @@
 const { checkAuthenticated } = require('../middlewares');
 const User = require('../Schema');
+const moment = require('moment');
 
 module.exports = {
     name: "/tasks",
@@ -14,7 +15,10 @@ module.exports = {
             let args = [];
 
             data.tasks.forEach(task => {
-                if (task.status === false) args.push(task.task);
+                if (task.status === false) args.push({
+                    task: task.task,
+                    since: moment(task.date).fromNow()
+                });
             });
 
             res.render("tasks.ejs", { args });
