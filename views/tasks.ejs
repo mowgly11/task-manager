@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard</title>
+  <link rel="stylesheet" href="./styles.css">
   <script src="./script.js" defer></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
@@ -18,7 +19,7 @@
       <% for(i = 0; i < args.length; i++) { %>
       <div>
         <label for="checked"><%= args[i].task %> - <%= args[i].since %> </label>
-        <input type="checkbox" id="checked" name="checked" value="<%= i %>" id="checked">
+        <input class="single-checkbox" type="checkbox" id="checked" name="checked" value="<%= i %>" id="checked">
       </div>
       <% } %>
       <button type="submit">Submit</button>

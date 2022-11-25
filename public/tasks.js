@@ -1,6 +1,7 @@
 const { checkAuthenticated } = require('../middlewares');
 const User = require('../Schema');
 const moment = require('moment');
+const wait = require('node:timers/promises');
 
 module.exports = {
     name: "/tasks",
@@ -32,14 +33,16 @@ module.exports = {
 
             let value = req.body.checked;
 
+            console.log(value)
+
             if (!value) return res.send({ message: "Please Select A Task(s) to remove first" });
 
             if (typeof value === 'object') {
-                value.forEach(val => {
-                    data.tasks.splice(parseInt(val), 1)
-                });
+                for (let i = 0; i <= value.length; i++) {
+                    data.tasks.splice(parseInt(value[i]), 1);
+                }
             } else if (typeof value === 'string') {
-                data.tasks.splice(parseInt(value), 1)
+                data.tasks.splice(parseInt(value), 1);
             }
 
             await data.save();
