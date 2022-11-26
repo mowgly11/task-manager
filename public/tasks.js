@@ -15,12 +15,16 @@ module.exports = {
 
             let args = [];
 
-            data.tasks.forEach(task => {
-                if (task.status === false) args.push({
-                    task: task.task,
-                    since: moment(task.date).fromNow()
+            const task = data.tasks;
+
+            let i = 0;
+            while (i < data.tasks.length) {
+                if (task[i].status === false) args.push({
+                    task: task[i].task,
+                    since: moment(task[i].date).fromNow()
                 });
-            });
+                i += 1
+            }
 
             res.render("tasks.ejs", { args });
         });
