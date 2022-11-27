@@ -11,7 +11,7 @@ module.exports = {
     },
 
     runPOST: passport.authenticate("local", {
-        successRedirect: "/dashboard",
+        successRedirect: "/callback",
         failureRedirect: "/login",
         failureFlash: true
     })

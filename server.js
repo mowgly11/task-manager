@@ -10,9 +10,8 @@ const passport = require('passport');
 const flash = require("express-flash");
 const session = require("express-session");
 const methodOverride = require("method-override");
-const {
-    sessionSecret,
-} = require('./config.json');
+const config = require('./config.json');
+const cookieParser = require('cookie-parser');
 
 initializePassport(passport,
     async email => await User.findOne({
@@ -36,12 +35,13 @@ app.set("view engine", 'ejs');
 app.use(express.static(__dirname + "/views"));
 app.use(urlencoded);
 app.use(flash());
+app.use(cookieParser());
 app.use(session({
-    secret: sessionSecret,
+    secret: config.sessionSecret,
     resave: false,
-    saveUninitialized: false
 }));
 app.use(express.json());
+
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(methodOverride("_method"));

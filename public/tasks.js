@@ -37,14 +37,14 @@ module.exports = {
 
             let value = req.body.checked;
 
-            console.log(value)
-
             if (!value) return res.send({ message: "Please Select A Task(s) to remove first" });
 
             if (typeof value === 'object') {
-                for (let i = 0; i <= value.length; i++) {
+                value = value.reverse();
+
+                for (let i = 0; i < value.length; i++) {
                     data.tasks.splice(parseInt(value[i]), 1);
-                }
+                };
             } else if (typeof value === 'string') {
                 data.tasks.splice(parseInt(value), 1);
             }

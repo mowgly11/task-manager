@@ -4,6 +4,9 @@ const schema = new Schema({
     username: String,
     email: String,
     password: String,
+    secretAccesskey: String,
+    refresh_token: String,
+    access_token: String,
     tasks: [
         {
             task: Object,

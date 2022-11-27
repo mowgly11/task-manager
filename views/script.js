@@ -17,9 +17,9 @@ $(document).ready(() => {
         });
     });
     $('input[type=checkbox]').on('change', function (e) {
-        if ($('input[type=checkbox]:checked').length > 3) {
+        if ($('input[type=checkbox]:checked').length > 7) {
             $(this).prop('checked', false);
-            alert("allowed only 3");
+            alert("You can only delete 7 tasks at once.");
         }
     });
 });
