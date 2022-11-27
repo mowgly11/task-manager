@@ -1,17 +1,32 @@
-<h1>Register</h1>
-<form action="/register" method="POST">
-  <div>
-    <label for="username">Username</label><br />
-    <input type="text" id="username" name="username" placeholder="Make a Username" required />
-  </div>
-  <div>
-    <label for="email">Email</label><br />
-    <input type="email" id="email" name="email" placeholder="Your Email" required />
-  </div>
-  <div>
-    <label for="password">Password</label><br />
-    <input type="password" id="password" placeholder="Insert a Password" name="password" required />
-  </div>
-  <button type="submit">Register</button>
-</form>
-<a href="/login">Login</a>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tasker - Register</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+  <h1>Register</h1>
+  <form action="/register" method="POST">
+    <div>
+      <label for="username">Username</label><br />
+      <input type="text" id="username" name="username" placeholder="Make a Username" required />
+    </div>
+    <div>
+      <label for="email">Email</label><br />
+      <input type="email" id="email" name="email" placeholder="Your Email" required />
+    </div>
+    <div>
+      <label for="password">Password</label><br />
+      <input type="password" id="password" placeholder="Insert a Password" name="password" required />
+    </div>
+    <button type="submit">Register</button>
+  </form>
+  <a href="/login">Login</a>
+</body>
+
+</html>
