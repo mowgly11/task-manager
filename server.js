@@ -39,6 +39,7 @@ app.use(cookieParser());
 app.use(session({
     secret: config.sessionSecret,
     resave: false,
+    saveUninitialized: false
 }));
 app.use(express.json());
 
