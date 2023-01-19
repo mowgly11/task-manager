@@ -8,3 +8,5 @@ i didn't really focus on the UI at this project.
   * `ExpressJS`: https://www.npmjs.com/package/express
   * `EJS`: https://www.npmjs.com/package/ejs
   * `Jquery Ajax`: https://api.jquery.com/jquery.ajax/
+  * `MongoDB/Mongoose`: https://www.npmjs.com/package/mongoose
+  * `Passport.js`: https://www.npmjs.com/package/passport
