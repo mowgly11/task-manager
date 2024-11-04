@@ -23,7 +23,6 @@ module.exports = {
         }
 
         user.tasks.push(taskObj);
-        user.tasksCount += 1;
 
         await user.save();
 

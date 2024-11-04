@@ -23,7 +23,6 @@ module.exports = {
                     username: req.body.username,
                     password: await bcrypt.hash(req.body.password, 10),
                     tasks: [],
-                    tasksCount: 0
                 }).save();
 
                 res.redirect("/login");
