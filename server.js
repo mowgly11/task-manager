@@ -1,8 +1,5 @@
 const fs = require('node:fs');
 const express = require('express');
-const urlencoded = require('body-parser').urlencoded({
-    extended: false
-});
 const { initMongoose } = require('./mongoConnection.js');
 const User = require('./Schema');
 const initializePassport = require('./passport-config');
@@ -22,8 +19,6 @@ initializePassport(passport,
     })
 );
 
-process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 1;
-
 initMongoose();
 
 const app = express();
@@ -32,8 +27,9 @@ app.enable("trust proxy");
 app.set("etag", false);
 app.set("view engine", 'ejs');
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/views"));
-app.use(urlencoded);
 app.use(flash());
 app.use(cookieParser());
 app.use(session({
@@ -47,7 +43,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(methodOverride("_method"));
 
-port = 80;
+port = 443;
 
 app.listen(port, () => console.log(`http://localhost:${port}`));
 
