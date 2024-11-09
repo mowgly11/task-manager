@@ -16,18 +16,32 @@
 </head>
 
 <body>
-  <h1>Dashboard</h1>
-  <form action="/logout?_method=DELETE" method="POST">
-    <button type="submit">Logout</button>
-  </form>
+  <header>
+    <div class="left-nav">
+      <h1>T<span>a</span>sker</h1>
+      <a href="#">Developer</a>
+      <a href="#">Github</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="right-nav">
+      <form action="/logout?_method=DELETE" method="POST">
+        <button type="submit" class="logout-btn">Logout</button>
+      </form>
+    </div>
+  </header>
+  <section class="main-section">
+    <h1>Dashboard</h1>
   <p id="message"></p>
   <form id="addTaskForm" action="/dashboard" method="post">
     <div id="add-task" style="display: flex;">
-      <input type="text" name="task" id="task" required>
+      <textarea name="task" id="task" cols="40" rows="5" placeholder='write down your task' required></textarea>
+    </div>
+    <div>
       <button type="submit">Add</button>
+      <a href="/tasks">View Tasks</a>
     </div>
   </form>
-  <a href="/tasks">Tasks</a>
+  </section>
 </body>
 
 <script>

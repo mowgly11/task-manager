@@ -6,8 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tasker - Register</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
   <script src="./script.js" defer></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js" defer></script>
   <link rel="stylesheet" href="./styles.css">
@@ -15,45 +18,38 @@
 
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/login">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/register">Register</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <div class="left-nav">
+      <h1>T<span>a</span>sker</h1>
+      <a href="#">Developer</a>
+      <a href="#">Github</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="right-nav">
+      <a href="/login" class="login">Login</a>
+      <a href="/register" class="register current">Register</a>
+    </div>
   </header>
-  <h1>Register</h1>
-  <form action="/register" method="POST">
-    <div>
-      <label for="username">Username</label><br />
-      <input type="text" id="username" name="username" placeholder="Make a Username" required />
-    </div>
-    <div>
-      <label for="email">Email</label><br />
-      <input type="email" id="email" name="email" placeholder="Your Email" required />
-    </div>
-    <div>
-      <label for="password">Password</label><br />
-      <input type="password" id="password" placeholder="Insert a Password" name="password" required />
-    </div>
-    <button type="submit">Register</button>
-  </form>
-  <a href="/login">Login</a>
+  <section class="main-section">
+    <h1 class="register-title">Register</h1>
+    <form action="/register" method="POST" id="registerForm">
+      <div>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="Make a Username" required />
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Your Email" required />
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Insert a Password" name="password" required />
+      </div>
+      <div>
+        <button type="submit">Register</button>
+        <a href="/login">Login</a>
+      </div>
+    </form>
+  </section>
 </body>
 
 </html>

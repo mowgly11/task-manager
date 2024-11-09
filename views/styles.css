@@ -1,9 +1,168 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+:root {
+    --color-60: #F5F5F5;
+    --color-30: #1F3A93;
+    --color-10: #FF6B6B;
+}
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
     font-family: 'Poppins', sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: transparent;
+}
+
+.left-nav {
+    display: flex;
+    align-items: center;
+}
+
+.left-nav a {
+    padding: 7px 15px;
+    margin: 0 5px;
+    transition: 0.2s;
+    color: black;
+}
+
+.left-nav a:hover {
+    transform: translateY(-3px) scale(1.1);
+    font-weight: 600;
+}
+
+.left-nav > h1 {
+    color: black;
+    font-size: 40px;
+    font-weight: 600;
+    margin-right: 25px;
+    display: flex;
+    cursor: pointer;
+}
+
+@keyframes spinLetter {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.left-nav h1:hover > span {
+    animation: spinLetter .7s ease-in-out;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+}
+
+
+.right-nav a{
+    padding: 7px 15px;
+    border: 2px solid var(--color-10);
+    border-radius: 10px;
+    color: var(--color-10);
+    margin: 0 5px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.right-nav a:hover {
+    background-color: var(--color-10);
+    color: white;
+}
+
+.main-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    flex-direction: column;
+}
+
+.main-section h1{
+    font-size: 8em;
+}
+
+.main-section a {
+    padding: 7px 15px;
+    border: 2px solid var(--color-10);
+    border-radius: 10px;
+    margin: 0 5px;
+    font-weight: 600;
+    transition: 0.3s;
+    text-decoration: none;
+    background-color: var(--color-10);
+    color: white;
+    margin-top: 25px;
+}
+
+.main-section a:hover, button[type="submit"]:hover {
+    box-shadow: 0px 0px 15px var(--color-10);
+}
+
+.current {
+    background-color: var(--color-10);
+    color: white !important;
+}
+
+#registerForm, .loginForm {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+#registerForm div, .loginForm div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+#registerForm label, .loginForm label {
+    padding: 5px;
+    font-size: 25px;
+}
+
+#registerForm input, .loginForm input {
+    padding: 8px 5px;
+    border-radius: 10px;
+    border: 2px solid black;
+    letter-spacing: 1px;
+    width: 400px;
+}
+
+button[type="submit"] {
+    padding: 7px 15px;
+    border: 2px solid var(--color-10);
+    border-radius: 10px;
+    margin: 0 5px;
+    font-weight: 600;
+    transition: 0.3s;
+    text-decoration: none;
+    background-color: var(--color-10);
+    color: white;
+    margin-top: 25px;
+}
+
+.logout-btn {
+    margin-top: 0 !important;
+}
+
+#task {
+    resize: vertical;
+    padding: 5px;
+    letter-spacing: 1px;
+    border-radius: 7px;
+}
+
+#addTaskForm {
+    text-align: center;
 }

@@ -6,31 +6,55 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tasker - Login</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
   <script src="./script.js" defer></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js" defer></script>
   <link rel="stylesheet" href="./styles.css">
 </head>
 
 <body>
-  <h1>Login</h1>
-  <% if(messages.error) {%>
-  <p><%= messages.error %></p>
-  <% } %>
-  <div class="login-form"></div>
-  <form action="/login" method="POST">
-    <div>
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="Your Email" required />
+  <header>
+    <div class="left-nav">
+      <h1 onclick="goHome()">T<span>a</span>sker</h1>
+      <a href="#">Developer</a>
+      <a href="#">Github</a>
+      <a href="#">Contact</a>
     </div>
-    <div>
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" placeholder="Insert a Password" required />
+    <div class="right-nav">
+      <a href="/login" class="login current">Login</a>
+      <a href="/register" class="register">Register</a>
     </div>
-    <button type="submit">Login</button>
-  </form>
-  <a href="/register">Register</a>
+  </header>
+  <section class="main-section">
+    <h1>Login</h1>
+    <% if(messages.error) {%>
+      <p>
+        <%= messages.error %>
+      </p>
+      <% } %>
+
+        <form action="/login" method="POST" class="loginForm">
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required />
+          </div>
+          <div>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Insert a Password" required />
+          </div>
+          <button class="login-btn" type="submit">Login</button>
+          <a href="/register">Register</a>
+        </form>
+  </section>
+  <script>
+    function goHome() {
+      window.location.href = "/"
+    }
+  </script>
 </body>
 
 </html>
